@@ -18,4 +18,4 @@ A commit sends and saves any changes, and the author and time line of these chan
 
 A merge conflict occurs when at least two people working on the same repository make changes on the same line.
 
-Hi Tyler!
+Hi Tyler <3
