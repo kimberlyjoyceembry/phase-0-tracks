@@ -1,0 +1,24 @@
+- Approach elevator on the first floor of a building
+- Upon approaching, press the button near the elevator door(s)
+	- If there is one button, press it
+	- If there are two buttons, press the top button 
+- Sometimes there are multiple elevators, if this is the case:
+	- The elevator that you will enter will make a ringing noise
+		- The top button will also light up (because you are going up)
+		- The doors will also open
+- Once elevator doors open, enter the elevator with your face facing the elevator doors 
+- You will see multiple buttons that you can press
+	- Some will have a numerical order from 1, 2, 3, and so on to as high as it can go
+	- Some will have letters with explanations right next to them to where they go
+	- Some will be a combination of letters and numbers with explanations next to them
+- The floor on which you need or want to go will determine which button you press
+	- To go to the fourth floor, press “4”
+	- To go to the tenth floor, press “10”
+	- To go to the lower level, most buttons will be labeled “LL”
+		- To determine this, read the explanations near buttons with letters
+- Upon deciding the floor you need to go on, press the appropriate button
+- The elevator doors will close and you will feel the elevator moving
+- Sometimes the elevator will stop before reaching your destination
+	- Check the display screen in the elevator indicating the floor you are on
+- Once the doors fully open and your desired floor is displayed on the display screen, walk out
+- Mission complete!
