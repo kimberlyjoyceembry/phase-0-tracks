@@ -1,3 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+/* * is used to apply to everything. box-sizing: border-box; can be applied so that padding will be adjusted */
+
 body {
-	background-color: blue;
+  max-width: 960px;
+  font-family: Verdana 
+}
+
+header {
+  background-color: #edd9c0;
+}
+
+footer {
+  background-color: clear;
+  clear: both;
+  width: 100%;
+}
+
+.column-1 {
+  background-color: #a8b6bf;
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.column-2 {
+  background-color: #edd9c0;
+  float: right;
+  width: 50%;
+  padding: 5px;
+}
+
+article {
+  background-color: #7d4627;
+}
+
+ul li a {
+  background-color: #edd9c0;
+}
+
+h2 {
+  background-color: #c9d8c5;
+}
+
+details {
+  background-color: #a8b6bf;
+}
+
+p {
+  background-color: #c9d8c5;
 }
