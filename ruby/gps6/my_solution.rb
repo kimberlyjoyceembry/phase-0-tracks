@@ -4,26 +4,32 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Require_relative relative is used to load a file within the same folder/directory path. 
+#Require loads a file based on the file path. So you have to type exactly where its located. It looks into the ruby root directory. 
+
 require_relative 'state_data'
 
 class VirusPredictor
-
+#This is an instance method that contains 3 parameters which are state_of_origin, population_density, population.  
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+#This method calls on predicted deaths and speed of spread which are methods of their own. 
+  
+  
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
-
+  
   private
 
-  def predicted_deaths(population_density, population, state)
+
+#This method calculates the predicted deaths based on the population_density,but takes population and state as parameters as well. 
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -41,7 +47,8 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+#Method that calculates speed of spread based on population density and state. 
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -64,10 +71,19 @@ class VirusPredictor
 
 end
 
+STATE_DATA.each do |state_name, state_info| 
+report = VirusPredictor.new(state_name, state_info[:population_density], state_info[:population])
+report.virus_effects
+
+end 
+
+
+
+
 #=======================================================================
 
-# DRIVER CODE
- # initialize VirusPredictor for each state
+#DRIVER CODE
+ #initialize VirusPredictor for each state
 
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
@@ -84,4 +100,4 @@ alaska.virus_effects
 
 
 #=======================================================================
-# Reflection Section
+#Reflection Section
