@@ -74,7 +74,6 @@ function random_data(integer) {
 		x++
     }
  	return words
-	
 }
 
 // Driver Code
