@@ -80,3 +80,30 @@ SELECT * FROM expenses, locations WHERE city_name="Portland”;
 
 DELETE FROM expenses WHERE expense_type="drinks with Dan";
 
+
+
+
+
+
+
+INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (1, hotel, "2016-08-12 through 2016-08-19", 200000);
+Error: no such column: hotel
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (1, "hotel", "2016-08-12 through 2016-08-19", 200000);
+sqlite> SELECTION * FROM expenses;
+Error: near "SELECTION": syntax error
+sqlite> SELECT * FROM expenses;
+1|1|hotel|2016-08-12 through 2016-08-19|200000
+sqlite> UPDATE expenses SET cost=2000.00 WHERE expense_type="hotel";
+sqlite> SELECT * FROM expenses;
+1|1|hotel|2016-08-12 through 2016-08-19|2000
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (1, "car rental", "2016-08-12 through 2016-08-19", 750.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (1, "drinks with the team", "2016-08-17", 70.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (2, "hotel", "2016-09-26 through 2016-09-28", 300.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (2, "dinner with Kimberly", "2016-08-26", 75.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (3, "hotel", "2016-10-27", 200.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (3, "car rental", "2016-10-27 through 2016-10-28", 200.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (3, "dinner", "2016-20-27", 40.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (4, "hotel", "2016-11-09 through 2016-11-11", 400.00);
+sqlite> INSERT INTO expenses (location_id, expense_type, date, cost) VALUES (4, "drinks with Dan", "2016-11-09", 50.00);
+
+
