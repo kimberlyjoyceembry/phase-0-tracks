@@ -1,0 +1,31 @@
+sqlite3 welp.db
+
+QUERIES ON WELP.DB
+
+—- How do you join three tables?
+
+SELECT * FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+
+1|5|great food|7|1|1|Bradford|Pitt|7|JoeBob's Sportz Bam
+2|5|most affordable towing service in town|3|2|2|Mandy|Kaling|3|The Beagle Nightclub
+3|3|competitive prices but showed up late|6|3|3|Angela|Jolie|6|Sushi World
+4|5|best sushi ever!!!|7|4|4|Steven|Wonder|7|JoeBob's Sportz Bam
+5|5|how have I not been here before?!|7|3|3|Angela|Jolie|7|JoeBob's Sportz Bam
+
+—- View the user’s names, the business name, the star rating, and the comment
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+
+Bradford|Pitt|JoeBob's Sportz Bam|5|great food
+Mandy|Kaling|The Beagle Nightclub|5|most affordable towing service in town
+Angela|Jolie|Sushi World|3|competitive prices but showed up late
+Steven|Wonder|JoeBob's Sportz Bam|5|best sushi ever!!!
+Angela|Jolie|JoeBob's Sportz Bam|5|how have I not been here before?!
+
+—- View the data of all three tables for just one particular business
+
+SELECT * FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id WHERE reviews.business_id = 7;
+
+1|5|great food|7|1|1|Bradford|Pitt|7|JoeBob's Sportz Bam
+4|5|best sushi ever!!!|7|4|4|Steven|Wonder|7|JoeBob's Sportz Bam
+5|5|how have I not been here before?!|7|3|3|Angela|Jolie|7|JoeBob's Sportz Bam
