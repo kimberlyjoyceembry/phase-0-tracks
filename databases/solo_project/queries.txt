@@ -1,0 +1,158 @@
+sqlite3 organize_expenses.db
+
+QUERIES ON ORGANIZE_EXPENSES.DB
+
+—- Display the information in one table
+
+SELECT * FROM locations;
+
+1|Portland
+2|Livermore
+3|Dresden
+4|Santa Rosa
+
+—- Update an item that meets some condition
+
+UPDATE expenses SET date="2016-10-12 through 2016-10-19" WHERE date="2016-08-12 through 2016-08-19";
+
+—- Display the information in both tables using one query
+
+SELECT * FROM expenses, locations;
+
+1|1|hotel|2016-10-12 through 2016-10-19|2000|1|Portland
+1|1|hotel|2016-10-12 through 2016-10-19|2000|2|Livermore
+1|1|hotel|2016-10-12 through 2016-10-19|2000|3|Dresden
+1|1|hotel|2016-10-12 through 2016-10-19|2000|4|Santa Rosa
+2|1|car rental|2016-10-12 through 2016-10-19|750|1|Portland
+2|1|car rental|2016-10-12 through 2016-10-19|750|2|Livermore
+2|1|car rental|2016-10-12 through 2016-10-19|750|3|Dresden
+2|1|car rental|2016-10-12 through 2016-10-19|750|4|Santa Rosa
+3|1|drinks with the team|2016-08-17|70|1|Portland
+3|1|drinks with the team|2016-08-17|70|2|Livermore
+3|1|drinks with the team|2016-08-17|70|3|Dresden
+3|1|drinks with the team|2016-08-17|70|4|Santa Rosa
+4|2|hotel|2016-09-26 through 2016-09-28|300|1|Portland
+4|2|hotel|2016-09-26 through 2016-09-28|300|2|Livermore
+4|2|hotel|2016-09-26 through 2016-09-28|300|3|Dresden
+4|2|hotel|2016-09-26 through 2016-09-28|300|4|Santa Rosa
+5|2|dinner with Kimberly|2016-08-26|75|1|Portland
+5|2|dinner with Kimberly|2016-08-26|75|2|Livermore
+5|2|dinner with Kimberly|2016-08-26|75|3|Dresden
+5|2|dinner with Kimberly|2016-08-26|75|4|Santa Rosa
+6|3|hotel|2016-10-27|200|1|Portland
+6|3|hotel|2016-10-27|200|2|Livermore
+6|3|hotel|2016-10-27|200|3|Dresden
+6|3|hotel|2016-10-27|200|4|Santa Rosa
+7|3|car rental|2016-10-27 through 2016-10-28|200|1|Portland
+7|3|car rental|2016-10-27 through 2016-10-28|200|2|Livermore
+7|3|car rental|2016-10-27 through 2016-10-28|200|3|Dresden
+7|3|car rental|2016-10-27 through 2016-10-28|200|4|Santa Rosa
+8|3|dinner|2016-20-27|40|1|Portland
+8|3|dinner|2016-20-27|40|2|Livermore
+8|3|dinner|2016-20-27|40|3|Dresden
+8|3|dinner|2016-20-27|40|4|Santa Rosa
+9|4|hotel|2016-11-09 through 2016-11-11|400|1|Portland
+9|4|hotel|2016-11-09 through 2016-11-11|400|2|Livermore
+9|4|hotel|2016-11-09 through 2016-11-11|400|3|Dresden
+9|4|hotel|2016-11-09 through 2016-11-11|400|4|Santa Rosa
+10|4|drinks with Dan|2016-11-09|50|1|Portland
+10|4|drinks with Dan|2016-11-09|50|2|Livermore
+10|4|drinks with Dan|2016-11-09|50|3|Dresden
+10|4|drinks with Dan|2016-11-09|50|4|Santa Rosa
+
+—- Display a narrower selection of columns from both tables using one query
+
+SELECT * FROM expenses, locations WHERE city_name="Portland”;
+
+1|1|hotel|2016-10-12 through 2016-10-19|2000|1|Portland
+2|1|car rental|2016-10-12 through 2016-10-19|750|1|Portland
+3|1|drinks with the team|2016-08-17|70|1|Portland
+4|2|hotel|2016-09-26 through 2016-09-28|300|1|Portland
+5|2|dinner with Kimberly|2016-08-26|75|1|Portland
+6|3|hotel|2016-10-27|200|1|Portland
+7|3|car rental|2016-10-27 through 2016-10-28|200|1|Portland
+8|3|dinner|2016-20-27|40|1|Portland
+9|4|hotel|2016-11-09 through 2016-11-11|400|1|Portland
+10|4|drinks with Dan|2016-11-09|50|1|Portland
+
+—- Delete an item that meets some condition
+
+DELETE FROM expenses WHERE expense_type="drinks with Dan";
+
+—- Try a few different joins in your database, and record the commands and the output
+
+LEFT JOIN
+SELECT * FROM expenses, locations WHERE expenses.location_id = locations.id;
+
+1|1|hotel|2016-10-12 through 2016-10-19|2000|1|Portland
+2|1|car rental|2016-10-12 through 2016-10-19|750|1|Portland
+3|1|drinks with the team|2016-08-17|70|1|Portland
+4|2|hotel|2016-09-26 through 2016-09-28|300|2|Livermore
+5|2|dinner with Kimberly|2016-08-26|75|2|Livermore
+6|3|hotel|2016-10-27|200|3|Dresden
+7|3|car rental|2016-10-27 through 2016-10-28|200|3|Dresden
+8|3|dinner|2016-20-27|40|3|Dresden
+9|4|hotel|2016-11-09 through 2016-11-11|400|4|Santa Rosa
+
+RIGHT JOIN
+SELECT * FROM locations, expenses WHERE locations.id = expenses.location_id;
+
+1|Portland|1|1|hotel|2016-10-12 through 2016-10-19|2000
+1|Portland|2|1|car rental|2016-10-12 through 2016-10-19|750
+1|Portland|3|1|drinks with the team|2016-08-17|70
+2|Livermore|4|2|hotel|2016-09-26 through 2016-09-28|300
+2|Livermore|5|2|dinner with Kimberly|2016-08-26|75
+3|Dresden|6|3|hotel|2016-10-27|200
+3|Dresden|7|3|car rental|2016-10-27 through 2016-10-28|200
+3|Dresden|8|3|dinner|2016-20-27|40
+4|Santa Rosa|9|4|hotel|2016-11-09 through 2016-11-11|400
+
+CROSS JOIN
+SELECT * FROM locations, expenses WHERE locations.id = expenses.location_id;
+
+1|Portland|1|1|hotel|2016-10-12 through 2016-10-19|2000
+1|Portland|2|1|car rental|2016-10-12 through 2016-10-19|750
+1|Portland|3|1|drinks with the team|2016-08-17|70
+2|Livermore|4|2|hotel|2016-09-26 through 2016-09-28|300
+2|Livermore|5|2|dinner with Kimberly|2016-08-26|75
+3|Dresden|6|3|hotel|2016-10-27|200
+3|Dresden|7|3|car rental|2016-10-27 through 2016-10-28|200
+3|Dresden|8|3|dinner|2016-20-27|40
+4|Santa Rosa|9|4|hotel|2016-11-09 through 2016-11-11|400
+sqlite> SELECT * FROM expenses CROSS JOIN locations;
+1|1|hotel|2016-10-12 through 2016-10-19|2000|1|Portland
+1|1|hotel|2016-10-12 through 2016-10-19|2000|2|Livermore
+1|1|hotel|2016-10-12 through 2016-10-19|2000|3|Dresden
+1|1|hotel|2016-10-12 through 2016-10-19|2000|4|Santa Rosa
+2|1|car rental|2016-10-12 through 2016-10-19|750|1|Portland
+2|1|car rental|2016-10-12 through 2016-10-19|750|2|Livermore
+2|1|car rental|2016-10-12 through 2016-10-19|750|3|Dresden
+2|1|car rental|2016-10-12 through 2016-10-19|750|4|Santa Rosa
+3|1|drinks with the team|2016-08-17|70|1|Portland
+3|1|drinks with the team|2016-08-17|70|2|Livermore
+3|1|drinks with the team|2016-08-17|70|3|Dresden
+3|1|drinks with the team|2016-08-17|70|4|Santa Rosa
+4|2|hotel|2016-09-26 through 2016-09-28|300|1|Portland
+4|2|hotel|2016-09-26 through 2016-09-28|300|2|Livermore
+4|2|hotel|2016-09-26 through 2016-09-28|300|3|Dresden
+4|2|hotel|2016-09-26 through 2016-09-28|300|4|Santa Rosa
+5|2|dinner with Kimberly|2016-08-26|75|1|Portland
+5|2|dinner with Kimberly|2016-08-26|75|2|Livermore
+5|2|dinner with Kimberly|2016-08-26|75|3|Dresden
+5|2|dinner with Kimberly|2016-08-26|75|4|Santa Rosa
+6|3|hotel|2016-10-27|200|1|Portland
+6|3|hotel|2016-10-27|200|2|Livermore
+6|3|hotel|2016-10-27|200|3|Dresden
+6|3|hotel|2016-10-27|200|4|Santa Rosa
+7|3|car rental|2016-10-27 through 2016-10-28|200|1|Portland
+7|3|car rental|2016-10-27 through 2016-10-28|200|2|Livermore
+7|3|car rental|2016-10-27 through 2016-10-28|200|3|Dresden
+7|3|car rental|2016-10-27 through 2016-10-28|200|4|Santa Rosa
+8|3|dinner|2016-20-27|40|1|Portland
+8|3|dinner|2016-20-27|40|2|Livermore
+8|3|dinner|2016-20-27|40|3|Dresden
+8|3|dinner|2016-20-27|40|4|Santa Rosa
+9|4|hotel|2016-11-09 through 2016-11-11|400|1|Portland
+9|4|hotel|2016-11-09 through 2016-11-11|400|2|Livermore
+9|4|hotel|2016-11-09 through 2016-11-11|400|3|Dresden
+9|4|hotel|2016-11-09 through 2016-11-11|400|4|Santa Rosa
