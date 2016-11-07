@@ -1,10 +1,21 @@
 # 5.5 Solo Challenge: Manipulating Strings with Iteration
+# Method that takes a spy's real name and creates a fake name by doing the following:
+  # Swap the first and last name
+    # downcase! to deal with uppercase letters
+    # split to turn into array
+    # map! to modify data
+  # Change all of the vowels to the next vowel
+  # Change all of the consonants to the next consonant
+  # Provide a user interface that lets a user enter a name and get a fake name back
+    # Let the user do this repeatedly until they quit (by typing "quit")
+      # Loop do, break if user_input == "quit"
+  # Use a data structure to store the fake names as they are entered
+    # # Use a hash alias_database {real name => alias}
+  # When the user exits the programs 
+    # Iterate through the data structure 
+    # Print all of the data the user entered
+      # Use a sentence like "Felicia Torres is also known as Vussit Gimodoe"
 
-# RELEASE 0: Attempt a Tricky Algorithm
-# Release Objectives:
-# Write a method that takes a spy's real name and creates a fake name
-# 1. Swapping the first and last names
-# 2. Changing all of the vowels and the consonants to the subsequent vowel and consonant
 def create_alias(name)
   name.downcase!
   name_letters = name.split('')
@@ -42,22 +53,27 @@ def create_alias(name)
   fake_name = fake_name.join  
 end
 
-# RELEASE 1 and 2: Provide a User Interface, Store the Aliases
-# Release Objectives:
-# Provide a user interface that lets a user enter a name and get a fake name back
-# Let the user do this repeatedly until they type "quit"
-# Use a data structure to store the fake names as they are entered
 alias_database = []
 
-puts "Hello agent! What is your first and last name?"
-agent_name = gets.chomp
-until agent_name.downcase == "quit"
-  alias_database << {real_name: agent_name, agent_alias: create_alias(agent_name)}
-  puts "Please enter a first and last name for another agent or enter 'quit' if finished."
+loop do
+  puts "Please enter a first and last name to create an alias or enter 'quit' if finished."
   agent_name = gets.chomp
-end
-# When the user exits the program, iterate through the data structure
-# Print all of the data the user entered in sentence form
+
+  if agent_name == "quit"
+    break
+  end
+
+  alias_database << {real_name: agent_name, agent_alias: create_alias(agent_name)}
+end 
+
+# puts "Hello agent! What is your first and last name?"
+# agent_name = gets.chomp
+# until agent_name.downcase == "quit"
+#   alias_database << {real_name: agent_name, agent_alias: create_alias(agent_name)}
+#   puts "Please enter a first and last name for another agent or enter 'quit' if finished."
+#   agent_name = gets.chomp
+# end
+
 alias_database.each do |agent|
   puts "The identity of agent #{agent[:agent_alias]} is #{agent[:real_name]}."
 end
