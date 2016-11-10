@@ -13,3 +13,5 @@
 # Bark
 # Explore
 # Lick 
+# Poop
+# Eat
