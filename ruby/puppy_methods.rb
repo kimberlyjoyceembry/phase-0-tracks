@@ -47,42 +47,45 @@ Obie.roll_over
 Obie.dog_years(2)
 Obie.play_dead
 
-# # Release 2: Write Your Own Class, and Experiment!
-# # Release Objectives:
-# 	# Design and implement your own class
-# 	# Should have an initialize mehod and at least two other instance methods
-# 	# Then do the following:
-# 		# Use a loop to make 50 instances of your class
-# 		# Modify your loop so that it stores all of the instances in a data structure
-# 		# Iterate over the data structure using .each and call the instance methods you wrote on each instance 
-# class Snake
-# 	def initialize()
-# 		puts "Fetching you a snake."
-# 	end
+# Release 2: Write Your Own Class, and Experiment!
+# Release Objectives:
+	# Design and implement your own class
+	# Should have an initialize mehod and at least two other instance methods
+	# Then do the following:
+		# Use a loop to make 50 instances of your class
+		# Modify your loop so that it stores all of the instances in a data structure
+		# Iterate over the data structure using .each and call the instance methods you wrote on each instance 
 
-# 	def what_to_eat(animal)
-#     puts " Time to eat a #{animal}!"
-# 	end
+class Snake
+	def initialize
+		puts "Fetching you a snake."
+	end
 
-# 	def slither_time(integer)
-#     puts "Your snake has been slithering for #{integer} minutes."
-# 	end
-# end
+	def what_to_eat(animal)
+    puts " Time to eat a(n) #{animal}!"
+	end
 
-# Oberyn = Snake.new
-# # Oberyn.what_to_eat("mouse")
-# # Oberyn.slither_time(60)
+	def slither_time(integer)
+    puts "Your snake has been slithering for #{integer} minutes."
+	end
+end
 
-# Snakes = Array.new
+Oberyn = Snake.new
 
-# i = 0
-# while i < 50
-# 	Snakes[i] = Snake.new
-# 	p Snakes
-# 	i += 1
-# end
+# DRIVER CODE 
+# Oberyn.what_to_eat("mouse")
+# Oberyn.slither_time(60)
 
-# Snakes.each do |x|
-# 	x.what_to_eat("mouse")
-# 	x.slither_time(60)
-# end
+Snakes = Array.new
+
+i = 0
+while i < 50
+	Snakes[i] = Snake.new
+	p Snakes
+	i += 1
+end
+
+Snakes.each do |method|
+	method.what_to_eat("mouse")
+	method.slither_time(60)
+end
