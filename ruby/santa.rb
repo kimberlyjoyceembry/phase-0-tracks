@@ -29,7 +29,7 @@ class Santa
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		@age = age
-		puts "initializing Santa instance..."
+		puts "Initializing Santa instance..."
 	end
 
 	def speak
