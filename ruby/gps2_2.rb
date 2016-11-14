@@ -10,12 +10,12 @@
   # print the list to the console by printing out the hash
 # output: hash data 
 def grocery_list(items)
-  new_grocery_list = {} # Can make hash empty {} instead of 0 parameter
+  new_grocery_list = {} 
   each_item = items.split(" ")
   each_item.each do |item|
     new_grocery_list[item] = 1
   end
-  new_grocery_list # Don't need return keyword
+  new_grocery_list 
 end
   
 groceries = grocery_list("wine cheese salami")
