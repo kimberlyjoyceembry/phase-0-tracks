@@ -10,12 +10,12 @@
   # print the list to the console by printing out the hash
 # output: hash data 
 def grocery_list(items)
-  new_grocery_list = Hash.new(0)
+  new_grocery_list = {} 
   each_item = items.split(" ")
   each_item.each do |item|
     new_grocery_list[item] = 1
   end
-  return new_grocery_list
+  new_grocery_list 
 end
   
 groceries = grocery_list("wine cheese salami")
@@ -50,6 +50,7 @@ add_items(groceries, "ice cream sandwiches")
 # input: item name that will be removed from the grocery list 
 # steps: create a method that removes items from our grocery list
 # output: updated grocery list using a hash
+####### refactor to handle items that aren't already in the list ########
 
 def remove_items(shopping_list, item)
   shopping_list.delete(item)
@@ -78,6 +79,8 @@ def print_list(shopping_list)
 end
 
 print_list(groceries)
+
+# DRIVER CODE
 
 # RELEASE 4: Reflect
 # What did you learn about pseudocode from working on this challenge?
