@@ -11,8 +11,10 @@ var color_array = ["brown", "black", "white", "green"]
 var name_array = ["Bob", "Sam", "John", "Tim"]
 
 color_array.push("purple")
+console.log("Color Array:")
 console.log(color_array)
 name_array.push("Nick")
+console.log("Name Array:")
 console.log(name_array)
 
 // Release 1: Build an Object
@@ -23,6 +25,7 @@ var horse = {};
 for (var i = 0; i < name_array.length; i++) {
   horse[name_array[i]] = color_array[i];
 }
+console.log("Horsie names and horsie colors")
 console.log(horse)
 
 // Release 2: Build Many Objects Using a Constructur
@@ -46,7 +49,7 @@ console.log(car1.make);
 console.log(car1.color);
 console.log(car1.year);
 car1.alarm();
-console.log("Car Complete")
+console.log("Car complete!")
 console.log("-----")
 
 console.log("Making new car...")
@@ -55,7 +58,7 @@ console.log(car2.make);
 console.log(car2.color);
 console.log(car2.year)
 car2.alarm();
-console.log("Car Complete")
+console.log("Car complete!")
 console.log("-----");
 
 console.log("Making new car...")
@@ -64,4 +67,4 @@ console.log(car3.make);
 console.log(car3.color);
 console.log(car3.year);
 car3.alarm();
-console.log("Car Complete")
+console.log("Car complete!")

@@ -17,22 +17,22 @@ function phrase(word_array) {
 }
 
 // Driver Code
-console.log(phrase(["Mary", "had", "a", "little", "lamb"]));
-console.log(phrase(["The", "itsy", "bitsy", "spider"]));
-console.log(phrase(["I", "wanna", "make", "you", "smile"]))
+console.log(phrase(["I", "wanna", "make", "you", "smile", "whenever", "you're", "sad"]))
+console.log(phrase(["Put", "you", "to", "bed", "when", "your", "arthritis", "is", "bad"]))
+console.log(phrase(["All", "I", "wanna", "do", "is", "grow", "old", "with", "you"]))
 
 // RELEASE 1: Find a Key-Value Match
 // Write a function that takes two objects and checks to see if the objects share at least one key-value pair
 	// Group functions at the top, testing at the bottom 
 // Iterate through the first object by comparing it to the second object
 // Function should return true with a match, and false with no matches
-// Add driver code that teset both outcomes of your function 
-function compare_two_objects(object_1, object_2) {
+// Add driver code that test both outcomes of your function 
+function compare_two_objects(obj_1, obj_2) {
 	var match = false
-	for (var key in object_1) {
-		for (var key_2 in object_2) {
+	for (var key in obj_1) {
+		for (var key_2 in obj_2) {
 			if (key == key_2) {
-				if (object_1[key] == object_2[key_2]) {
+				if (obj_1[key] == obj_2[key_2]) {
 					match = true;
 				}
 			}
@@ -63,21 +63,20 @@ console.log(compare_two_objects({month: "June", days: 30}, {month: "July", days:
 function random_data(integer) {
 	var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 	var word = ""
-	var words = []
+	var word_array = []
 	var x = 0
 	while (x < integer){
 		for(var i = 0; i <  Math.floor((Math.random() * 10) + 1); i++){
 			word += (alphabet[Math.floor((Math.random() * alphabet.length))]);
 		}
-		words.push(word);
+		word_array.push(word);
 		word = ""
 		x++
     }
- 	return words
+ 	return word_array
 }
 
 // Driver Code
 console.log(random_data(10));
 var random_data_array = random_data(10);
 console.log(phrase(random_data_array))
-
