@@ -15,8 +15,8 @@ function reverse(str) {
 	return(reversed_string)
 }
 
-var conditional_reverse = reverse("hello");
+var conditional_reverse = reverse("meow");
 
 if (1 == 1) {
 	console.log(conditional_reverse)
-}
+};
