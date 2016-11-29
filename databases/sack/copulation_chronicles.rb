@@ -13,9 +13,19 @@ Journal personal relations containing vital information
 				- Make sure each column is populated with data
 			2. Let user search through entries
 				- Search by tags
-				- Search by keywords and dates
+				- Search by partner_name or date
 				- Print onto console the desired entries
 			3. Continue loop until user enters exit
 =end
 
 require 'sqlite3'
+
+def new_entry(database, partner_name, date, entry, tag_id)
+	database.execute("INSERT INTO chronicles (partner_name, date, entry, tag_id) VALUES (?, ?, ?, ?)", [partner_name, date, entry, tag_id])
+end
+
+def search_names
+end
+
+def search_dates
+end
